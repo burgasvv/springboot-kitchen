@@ -2,6 +2,7 @@ package com.burgas.springbootkitchen.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Check;
 
 import java.util.List;
 
@@ -24,6 +25,7 @@ public class Recipe {
     private String description;
 
     @Column(nullable = false)
+    @Check(constraints = "rating >= 0 and rating <= 10")
     private Double rating;
 
     @ManyToOne
